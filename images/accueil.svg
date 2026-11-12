@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Baobab au coucher du soleil">
+  <!-- Image de remplacement dessinée à la main (aucun droit d'auteur) -->
+  <defs>
+    <linearGradient id="ciel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6b25a"/>
+      <stop offset="1" stop-color="#e2711d"/>
+    </linearGradient>
+  </defs>
+  <!-- Ciel -->
+  <rect width="1200" height="600" fill="url(#ciel)"/>
+  <!-- Soleil -->
+  <circle cx="860" cy="330" r="110" fill="#fbe3b0"/>
+  <!-- Sol -->
+  <rect y="470" width="1200" height="130" fill="#1f4d3a"/>
+  <!-- Baobab : tronc, branches et feuillage -->
+  <g fill="#1f4d3a">
+    <path d="M330 480 C345 380 345 300 350 230 L450 230 C455 300 455 380 470 480 Z"/>
+    <path d="M360 240 L290 150 L310 140 L385 225 Z"/>
+    <path d="M440 240 L510 150 L490 140 L415 225 Z"/>
+    <path d="M390 235 L385 120 L415 120 L410 235 Z"/>
+    <ellipse cx="290" cy="135" rx="70" ry="32"/>
+    <ellipse cx="400" cy="105" rx="80" ry="36"/>
+    <ellipse cx="510" cy="135" rx="70" ry="32"/>
+  </g>
+</svg>

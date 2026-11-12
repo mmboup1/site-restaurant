@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Encodage des caractères : indispensable pour les accents -->
+  <meta charset="UTF-8">
+  <!-- Adapte la largeur de la page à l'écran du téléphone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Petit Baobab - Restaurant africain à Poitiers</title>
+  <!-- Feuille de style commune à toutes les pages -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== EN-TÊTE : nom du restaurant + menu de navigation ===== -->
+  <header class="en-tete">
+    <a class="logo" href="index.html">Le Petit Baobab</a>
+
+    <nav class="navigation" aria-label="Menu principal">
+      <ul>
+        <!-- aria-current indique la page sur laquelle on se trouve -->
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main>
+
+    <!-- Grande image d'accueil avec la phrase d'accroche et les deux boutons -->
+    <section class="accueil">
+      <!-- Image de remplacement : à changer par une vraie photo plus tard -->
+      <img class="accueil-image" src="images/accueil.svg"
+           alt="Illustration d'un baobab au coucher du soleil"
+           width="1200" height="600">
+
+      <div class="accueil-texte">
+        <h1>Les saveurs du Sénégal au cœur de Poitiers</h1>
+        <p>Cuisine sénégalaise faite maison, sur place et à emporter.</p>
+
+        <div class="boutons">
+          <!-- Lien tel: : sur téléphone, il lance directement l'appel -->
+          <a class="bouton bouton-principal" href="tel:+33500000000">Appeler</a>
+          <a class="bouton bouton-secondaire" href="menu.html">Voir le menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section de présentation du restaurant -->
+    <section class="presentation">
+      <h2>Qui sommes-nous ?</h2>
+      <p>
+        Le Petit Baobab est un restaurant familial qui vous fait découvrir
+        la cuisine sénégalaise : thiéboudienne, yassa poulet, mafé et pastels,
+        accompagnés de jus de bissap et de gingembre faits maison.
+      </p>
+      <p>
+        Tous nos plats sont préparés sur place avec des produits frais.
+        Venez manger chez nous ou emportez votre repas !
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ===== PIED DE PAGE : adresse et horaires ===== -->
+  <footer class="pied-de-page">
+    <div class="pied-bloc">
+      <h2>Adresse</h2>
+      <!-- La balise address sert à indiquer des coordonnées -->
+      <address>
+        Le Petit Baobab<br>
+        12 rue Exemple<br>
+        86000 Poitiers<br>
+        <a href="tel:+33500000000">05 00 00 00 00</a>
+      </address>
+    </div>
+
+    <div class="pied-bloc">
+      <h2>Horaires</h2>
+      <p>
+        Mardi au samedi<br>
+        12h - 14h30 et 19h - 22h30
+      </p>
+      <p>Fermé dimanche et lundi</p>
+    </div>
+
+    <p class="mention">Site exemple : ce restaurant est inventé.</p>
+  </footer>
+
+  <!-- Le JavaScript commun à toutes les pages (vide pour l'instant) -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
