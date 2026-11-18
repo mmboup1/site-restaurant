@@ -15,7 +15,15 @@
   <header class="en-tete">
     <a class="logo" href="index.html">Le Petit Baobab</a>
 
-    <nav class="navigation" aria-label="Menu principal">
+    <!-- Bouton "hamburger" (trois traits) : visible seulement sur téléphone.
+         aria-expanded dit aux lecteurs d'écran si le menu est ouvert ou fermé.
+         aria-controls indique quel élément le bouton ouvre (id="menu-principal"). -->
+    <button class="bouton-menu" type="button" aria-label="Ouvrir le menu"
+            aria-expanded="false" aria-controls="menu-principal">
+      <span class="bouton-menu-traits" aria-hidden="true"></span>
+    </button>
+
+    <nav class="navigation" id="menu-principal" aria-label="Menu principal">
       <ul>
         <!-- aria-current indique la page sur laquelle on se trouve -->
         <li><a href="index.html" aria-current="page">Accueil</a></li>
@@ -88,7 +96,8 @@
     <p class="mention">Site exemple : ce restaurant est inventé.</p>
   </footer>
 
-  <!-- Le JavaScript commun à toutes les pages (vide pour l'instant) -->
+  <!-- Le JavaScript commun à toutes les pages (bouton du menu sur téléphone).
+       defer : le script s'exécute une fois toute la page lue. -->
   <script src="js/main.js" defer></script>
 </body>
 </html>

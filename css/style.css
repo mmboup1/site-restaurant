@@ -64,10 +64,15 @@ a:focus-visible {
 }
 
 /* ----- En-tête ----- */
+/* Sur téléphone : le nom à gauche, le bouton hamburger à droite,
+   et le menu (quand il est ouvert) passe à la ligne en dessous */
 .en-tete {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--vert);
   padding: 0.75rem 1rem;
-  text-align: center;
 }
 
 .logo {
@@ -78,19 +83,101 @@ a:focus-visible {
   text-decoration: none;
 }
 
+/* ----- Bouton hamburger (téléphone) ----- */
+
+/* Caché par défaut : si JavaScript ne marche pas, le bouton ne servirait
+   à rien. La classe "js" est ajoutée sur <html> par js/main.js. */
+.bouton-menu {
+  display: none;
+}
+
+.js .bouton-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;            /* 48px : taille conseillée pour un doigt */
+  height: 48px;
+  padding: 0;
+  background-color: transparent;
+  border: 2px solid rgba(250, 246, 238, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Les trois traits : le trait du milieu est le <span>,
+   ceux du haut et du bas sont dessinés avec ::before et ::after */
+.bouton-menu-traits,
+.bouton-menu-traits::before,
+.bouton-menu-traits::after {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: var(--blanc-casse);
+  border-radius: 2px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.bouton-menu-traits {
+  position: relative;
+}
+
+.bouton-menu-traits::before,
+.bouton-menu-traits::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.bouton-menu-traits::before {
+  top: -8px;
+}
+
+.bouton-menu-traits::after {
+  top: 8px;
+}
+
+/* Menu ouvert : les trois traits se transforment en croix */
+.bouton-menu[aria-expanded="true"] .bouton-menu-traits {
+  background-color: transparent;  /* le trait du milieu disparaît */
+}
+
+.bouton-menu[aria-expanded="true"] .bouton-menu-traits::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.bouton-menu[aria-expanded="true"] .bouton-menu-traits::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 /* ----- Menu de navigation ----- */
+
+/* Sur téléphone, le menu prend toute la largeur, sous le nom */
+.navigation {
+  width: 100%;
+}
+
+/* Si JavaScript marche, le menu est caché jusqu'au clic sur le bouton */
+.js .navigation {
+  display: none;
+}
+
+/* La classe "ouvert" est ajoutée ou enlevée par js/main.js */
+.js .navigation.ouvert {
+  display: block;
+}
+
 .navigation ul {
   list-style: none;       /* enlève les puces de la liste */
-  margin: 0.25rem 0 0;
+  margin: 0.5rem 0 0;
   padding: 0;
-  display: flex;          /* les liens se placent sur une ligne */
-  justify-content: center;
+  display: flex;
+  flex-direction: column; /* sur téléphone : un lien sous l'autre */
   gap: 0.25rem;
 }
 
 .navigation a {
   display: block;
-  padding: 0.6rem 0.9rem; /* zone large, facile à toucher au doigt */
+  padding: 0.8rem 0.9rem; /* zone large, facile à toucher au doigt */
   color: var(--blanc-casse);
   text-decoration: none;
   border-radius: 6px;
@@ -217,14 +304,24 @@ a:focus-visible {
 
   /* En-tête : le nom à gauche, la navigation à droite */
   .en-tete {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0.75rem 2rem;
-    text-align: left;
   }
 
+  /* Plus besoin du bouton hamburger : il y a la place pour les liens */
+  .js .bouton-menu {
+    display: none;
+  }
+
+  /* Le menu est toujours visible, même sans clic */
+  .navigation,
+  .js .navigation {
+    display: block;
+    width: auto;
+  }
+
+  /* Les liens sur une seule ligne */
   .navigation ul {
+    flex-direction: row;
     margin: 0;
   }
 
