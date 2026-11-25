@@ -260,8 +260,9 @@ a:focus-visible {
   margin: 0 0 1rem;
 }
 
-/* ----- Page Menu : la carte ----- */
-.carte {
+/* ----- Pages Menu et Contact : zone de contenu centrée ----- */
+.carte,
+.contact {
   max-width: var(--largeur-max);
   margin: 0 auto;         /* centre la carte dans la page */
   padding: 1.5rem 1rem 2.5rem;
@@ -275,8 +276,10 @@ a:focus-visible {
   margin-bottom: 2rem;
 }
 
-/* Le titre de chaque catégorie est souligné d'un trait orange */
-.carte-categorie h2 {
+/* Les titres des catégories (Menu) et des blocs (Contact)
+   sont soulignés d'un trait orange */
+.carte-categorie h2,
+.contact-bloc h2 {
   padding-bottom: 0.4rem;
   border-bottom: 3px solid var(--orange);
 }
@@ -333,6 +336,69 @@ a:focus-visible {
 
 .carte-emporter p {
   margin: 0 0 1.25rem;
+}
+
+/* ----- Page Contact ----- */
+.contact-bloc {
+  margin-bottom: 2rem;
+}
+
+.contact address {
+  font-style: normal;     /* par défaut, address est en italique */
+  margin-bottom: 1.25rem;
+}
+
+.contact address a {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* Tableau des horaires */
+.horaires {
+  width: 100%;
+  border-collapse: collapse; /* une seule bordure entre deux cases */
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;       /* les coins arrondis s'appliquent aussi aux cases */
+}
+
+/* Le titre du tableau est utile aux lecteurs d'écran,
+   mais le h2 "Horaires" le dit déjà à l'écran : on le cache visuellement */
+.horaires caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.horaires th,
+.horaires td {
+  padding: 0.7rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ece4d4;
+}
+
+/* Ligne des titres de colonnes en vert */
+.horaires thead th {
+  background-color: var(--vert);
+  color: var(--blanc-casse);
+}
+
+/* Les jours de fermeture ressortent en orange */
+.horaires .ferme td {
+  color: var(--orange-fonce);
+  font-weight: 700;
+}
+
+/* La carte Google Maps prend toute la largeur */
+.plan {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: 8px;
 }
 
 /* ----- Pied de page ----- */
@@ -419,10 +485,29 @@ a:focus-visible {
     padding: 2rem 2rem 3rem;
   }
 
-  /* Page Menu : plus d'espace, et deux plats par ligne */
-  .carte {
+  /* Pages Menu et Contact : plus d'espace sur les côtés */
+  .carte,
+  .contact {
     padding: 2rem 2rem 3rem;
   }
+
+  /* Page Contact : coordonnées et horaires côte à côte */
+  .contact-infos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  /* Page Contact : boutons l'un sous l'autre dans leur colonne */
+  .contact-bloc .boutons {
+    flex-direction: column;
+  }
+
+  .plan {
+    height: 400px;
+  }
+
+  /* Page Menu : deux plats par ligne */
 
   .carte-liste {
     grid-template-columns: 1fr 1fr;

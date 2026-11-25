@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Encodage des caractères : indispensable pour les accents -->
+  <meta charset="UTF-8">
+  <!-- Adapte la largeur de la page à l'écran du téléphone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact et horaires - Le Petit Baobab, restaurant africain à Poitiers</title>
+  <!-- Feuille de style commune à toutes les pages -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== EN-TÊTE : identique sur toutes les pages ===== -->
+  <header class="en-tete">
+    <a class="logo" href="index.html">Le Petit Baobab</a>
+
+    <!-- Bouton "hamburger" (trois traits) : visible seulement sur téléphone.
+         aria-expanded dit aux lecteurs d'écran si le menu est ouvert ou fermé.
+         aria-controls indique quel élément le bouton ouvre (id="menu-principal"). -->
+    <button class="bouton-menu" type="button" aria-label="Ouvrir le menu"
+            aria-expanded="false" aria-controls="menu-principal">
+      <span class="bouton-menu-traits" aria-hidden="true"></span>
+    </button>
+
+    <nav class="navigation" id="menu-principal" aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <!-- aria-current indique la page sur laquelle on se trouve -->
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CONTENU PRINCIPAL : coordonnées, horaires et plan ===== -->
+  <main class="contact">
+
+    <h1>Nous trouver</h1>
+
+    <!-- Sur grand écran, ces deux blocs se placent côte à côte -->
+    <div class="contact-infos">
+
+      <!-- ----- Coordonnées et boutons ----- -->
+      <section class="contact-bloc">
+        <h2>Coordonnées</h2>
+        <address>
+          Le Petit Baobab<br>
+          12 rue Exemple<br>
+          86000 Poitiers<br>
+          Tél. : <a href="tel:+33500000000">05 00 00 00 00</a>
+        </address>
+
+        <div class="boutons">
+          <!-- Lien tel: : sur téléphone, il lance directement l'appel.
+               Le numéro est écrit au format international (+33, sans le 0). -->
+          <a class="bouton bouton-principal" href="tel:+33500000000">Appeler</a>
+
+          <!-- Lien vers l'itinéraire Google Maps, ouvert dans un nouvel onglet.
+               L'adresse du restaurant est inventée : on vise donc le centre de
+               Poitiers. Pour un vrai client, mettre sa vraie adresse après
+               "destination=" (les espaces s'écrivent +). -->
+          <a class="bouton bouton-secondaire"
+             href="https://www.google.com/maps/dir/?api=1&amp;destination=Poitiers"
+             target="_blank" rel="noopener">Itinéraire</a>
+        </div>
+      </section>
+
+      <!-- ----- Horaires dans un tableau ----- -->
+      <section class="contact-bloc">
+        <h2>Horaires</h2>
+        <table class="horaires">
+          <!-- caption : le titre du tableau, lu par les lecteurs d'écran -->
+          <caption>Horaires d'ouverture du restaurant</caption>
+          <thead>
+            <tr>
+              <!-- scope="col" : cette case est le titre d'une colonne -->
+              <th scope="col">Jour</th>
+              <th scope="col">Midi</th>
+              <th scope="col">Soir</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- colspan="2" : la case "Fermé" occupe les deux colonnes -->
+            <tr class="ferme">
+              <th scope="row">Lundi</th>
+              <td colspan="2">Fermé</td>
+            </tr>
+            <tr>
+              <!-- scope="row" : cette case est le titre de la ligne -->
+              <th scope="row">Mardi</th>
+              <td>12h - 14h30</td>
+              <td>19h - 22h30</td>
+            </tr>
+            <tr>
+              <th scope="row">Mercredi</th>
+              <td>12h - 14h30</td>
+              <td>19h - 22h30</td>
+            </tr>
+            <tr>
+              <th scope="row">Jeudi</th>
+              <td>12h - 14h30</td>
+              <td>19h - 22h30</td>
+            </tr>
+            <tr>
+              <th scope="row">Vendredi</th>
+              <td>12h - 14h30</td>
+              <td>19h - 22h30</td>
+            </tr>
+            <tr>
+              <th scope="row">Samedi</th>
+              <td>12h - 14h30</td>
+              <td>19h - 22h30</td>
+            </tr>
+            <tr class="ferme">
+              <th scope="row">Dimanche</th>
+              <td colspan="2">Fermé</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+
+    <!-- ----- Carte Google Maps intégrée ----- -->
+    <section class="contact-bloc">
+      <h2>Plan d'accès</h2>
+      <!-- iframe : affiche une autre page (ici Google Maps) dans notre page.
+           title : décrit la carte pour les lecteurs d'écran.
+           loading="lazy" : la carte ne se charge que quand on arrive dessus,
+           la page s'ouvre donc plus vite.
+           Comme pour l'itinéraire, on montre le centre de Poitiers. -->
+      <iframe class="plan"
+              src="https://www.google.com/maps?q=Poitiers&amp;output=embed"
+              title="Carte Google Maps du centre de Poitiers"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+  </main>
+
+  <!-- ===== PIED DE PAGE : identique sur toutes les pages ===== -->
+  <footer class="pied-de-page">
+    <div class="pied-bloc">
+      <h2>Adresse</h2>
+      <!-- La balise address sert à indiquer des coordonnées -->
+      <address>
+        Le Petit Baobab<br>
+        12 rue Exemple<br>
+        86000 Poitiers<br>
+        <a href="tel:+33500000000">05 00 00 00 00</a>
+      </address>
+    </div>
+
+    <div class="pied-bloc">
+      <h2>Horaires</h2>
+      <p>
+        Mardi au samedi<br>
+        12h - 14h30 et 19h - 22h30
+      </p>
+      <p>Fermé dimanche et lundi</p>
+    </div>
+
+    <p class="mention">Site exemple : ce restaurant est inventé.</p>
+  </footer>
+
+  <!-- Le JavaScript commun à toutes les pages (bouton du menu sur téléphone).
+       defer : le script s'exécute une fois toute la page lue. -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
