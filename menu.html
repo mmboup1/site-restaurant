@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Encodage des caractères : indispensable pour les accents -->
+  <meta charset="UTF-8">
+  <!-- Adapte la largeur de la page à l'écran du téléphone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La carte - Le Petit Baobab, restaurant africain à Poitiers</title>
+  <!-- Feuille de style commune à toutes les pages -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== EN-TÊTE : identique sur toutes les pages ===== -->
+  <header class="en-tete">
+    <a class="logo" href="index.html">Le Petit Baobab</a>
+
+    <!-- Bouton "hamburger" (trois traits) : visible seulement sur téléphone.
+         aria-expanded dit aux lecteurs d'écran si le menu est ouvert ou fermé.
+         aria-controls indique quel élément le bouton ouvre (id="menu-principal"). -->
+    <button class="bouton-menu" type="button" aria-label="Ouvrir le menu"
+            aria-expanded="false" aria-controls="menu-principal">
+      <span class="bouton-menu-traits" aria-hidden="true"></span>
+    </button>
+
+    <nav class="navigation" id="menu-principal" aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <!-- aria-current indique la page sur laquelle on se trouve -->
+        <li><a href="menu.html" aria-current="page">Menu</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CONTENU PRINCIPAL : la carte du restaurant ===== -->
+  <main class="carte">
+
+    <h1>Notre carte</h1>
+    <p class="carte-intro">
+      Tous nos plats sont faits maison, à déguster sur place ou à emporter.
+    </p>
+
+    <!-- Chaque catégorie est une section avec son titre (h2).
+         Chaque plat est un élément de liste avec son nom (h3),
+         son prix et sa description. -->
+
+    <!-- ----- Entrées ----- -->
+    <section class="carte-categorie">
+      <h2>Entrées</h2>
+      <ul class="carte-liste">
+        <li class="plat">
+          <div class="plat-entete">
+            <h3>Pastels au poisson</h3>
+            <!-- &nbsp; : espace insécable, le prix ne se coupe pas en deux -->
+            <p class="plat-prix">6,00&nbsp;€</p>
+          </div>
+          <p class="plat-description">
+            Six petits chaussons croustillants farcis au poisson épicé,
+            servis avec une sauce tomate pimentée.
+          </p>
+        </li>
+        <li class="plat">
+          <div class="plat-entete">
+            <h3>Pastels à la viande</h3>
+            <p class="plat-prix">6,50&nbsp;€</p>
+          </div>
+          <p class="plat-description">
+            Six chaussons dorés farcis au bœuf haché, oignons et persil.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ----- Plats ----- -->
+    <section class="carte-categorie">
+      <h2>Plats</h2>
+      <ul class="carte-liste">
+        <li class="plat">
+          <div class="plat-entete">
+            <h3>Thiéboudienne</h3>
+            <p class="plat-prix">15,00&nbsp;€</p>
+          </div>
+          <p class="plat-description">
+            Le plat national du Sénégal : riz rouge cuit dans une sauce tomate,
+            poisson farci et légumes fondants.
+          </p>
+        </li>
+        <li class="plat">
+          <div class="plat-entete">
+            <h3>Yassa poulet</h3>
+            <p class="plat-prix">13,50&nbsp;€</p>
+          </div>
+          <p class="plat-description">
+            Poulet mariné au citron, mijoté avec beaucoup d'oignons,
+            servi avec du riz blanc.
+          </p>
+        </li>
+        <li class="plat">
+          <div class="plat-entete">
+            <h3>Mafé</h3>
+            <p class="plat-prix">14,00&nbsp;€</p>
+          </div>
+          <p class="plat-description">
+            Viande de bœuf mijotée dans une sauce onctueuse à la pâte d'arachide,
+            servie avec du riz blanc.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ----- Boissons ----- -->
+    <section class="carte-categorie">
+      <h2>Boissons</h2>
+      <ul class="carte-liste">
+        <li class="plat">
+          <div class="plat-entete">
+            <h3>Jus de bissap</h3>
+            <p class="plat-prix">3,50&nbsp;€</p>
+          </div>
+          <p class="plat-description">
+            Boisson fraîche aux fleurs d'hibiscus et à la menthe, faite maison.
+          </p>
+        </li>
+        <li class="plat">
+          <div class="plat-entete">
+            <h3>Jus de gingembre</h3>
+            <p class="plat-prix">3,50&nbsp;€</p>
+          </div>
+          <p class="plat-description">
+            Jus de gingembre frais au citron vert, doux et piquant à la fois.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Rappel pour commander à emporter -->
+    <section class="carte-emporter">
+      <h2>Envie d'emporter ?</h2>
+      <p>Appelez-nous pour commander, votre repas sera prêt à votre arrivée.</p>
+      <!-- Lien tel: : sur téléphone, il lance directement l'appel -->
+      <a class="bouton bouton-principal" href="tel:+33500000000">Appeler</a>
+    </section>
+
+  </main>
+
+  <!-- ===== PIED DE PAGE : identique sur toutes les pages ===== -->
+  <footer class="pied-de-page">
+    <div class="pied-bloc">
+      <h2>Adresse</h2>
+      <!-- La balise address sert à indiquer des coordonnées -->
+      <address>
+        Le Petit Baobab<br>
+        12 rue Exemple<br>
+        86000 Poitiers<br>
+        <a href="tel:+33500000000">05 00 00 00 00</a>
+      </address>
+    </div>
+
+    <div class="pied-bloc">
+      <h2>Horaires</h2>
+      <p>
+        Mardi au samedi<br>
+        12h - 14h30 et 19h - 22h30
+      </p>
+      <p>Fermé dimanche et lundi</p>
+    </div>
+
+    <p class="mention">Site exemple : ce restaurant est inventé.</p>
+  </footer>
+
+  <!-- Le JavaScript commun à toutes les pages (bouton du menu sur téléphone).
+       defer : le script s'exécute une fois toute la page lue. -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>

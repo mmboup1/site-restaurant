@@ -260,6 +260,81 @@ a:focus-visible {
   margin: 0 0 1rem;
 }
 
+/* ----- Page Menu : la carte ----- */
+.carte {
+  max-width: var(--largeur-max);
+  margin: 0 auto;         /* centre la carte dans la page */
+  padding: 1.5rem 1rem 2.5rem;
+}
+
+.carte-intro {
+  margin: 0 0 1.5rem;
+}
+
+.carte-categorie {
+  margin-bottom: 2rem;
+}
+
+/* Le titre de chaque catégorie est souligné d'un trait orange */
+.carte-categorie h2 {
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--orange);
+}
+
+/* La liste des plats, sans puces */
+.carte-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;          /* grille : une colonne sur téléphone */
+  gap: 0.75rem;
+}
+
+/* Chaque plat est une petite carte blanche */
+.plat {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--vert);
+}
+
+/* Le nom du plat à gauche, le prix à droite, sur la même ligne */
+.plat-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;  /* aligne le nom et le prix sur la ligne du texte */
+  gap: 1rem;
+}
+
+.plat h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--vert);
+}
+
+.plat-prix {
+  margin: 0;
+  font-weight: 700;
+  color: var(--orange);
+  white-space: nowrap;    /* le prix reste toujours sur une seule ligne */
+}
+
+.plat-description {
+  margin: 0.4rem 0 0;
+}
+
+/* Encadré "Envie d'emporter ?" en bas de la carte */
+.carte-emporter {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.carte-emporter p {
+  margin: 0 0 1.25rem;
+}
+
 /* ----- Pied de page ----- */
 .pied-de-page {
   background-color: var(--vert);
@@ -342,6 +417,20 @@ a:focus-visible {
 
   .presentation {
     padding: 2rem 2rem 3rem;
+  }
+
+  /* Page Menu : plus d'espace, et deux plats par ligne */
+  .carte {
+    padding: 2rem 2rem 3rem;
+  }
+
+  .carte-liste {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Le bouton "Appeler" ne prend pas toute la largeur */
+  .carte-emporter .bouton {
+    display: inline-block;
   }
 
   /* Pied de page : adresse et horaires côte à côte */
