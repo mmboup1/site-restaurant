@@ -129,16 +129,34 @@
     <!-- ~~~~~ Carte Google Maps intégrée ~~~~~ -->
     <section class="contact-bloc">
       <h2>Plan d'accès</h2>
-      <!-- iframe : affiche une autre page (ici Google Maps) dans notre page.
-           title : décrit la carte pour les lecteurs d'écran.
-           loading="lazy" : la carte ne se charge que quand on arrive dessus,
-           la page s'ouvre donc plus vite.
-           Comme pour l'itinéraire, on montre le centre de Poitiers. -->
-      <iframe class="plan"
-              src="https://www.google.com/maps?q=Poitiers&amp;output=embed"
-              title="Carte Google Maps du centre de Poitiers"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <!-- RGPD : la carte Google Maps envoie des informations sur le visiteur
+           à Google. On ne la charge donc PAS tout de suite : on affiche d'abord
+           cet encadré, et js/main.js le remplace par la carte seulement quand
+           le visiteur clique sur "Afficher la carte". -->
+      <div class="plan-zone">
+        <p>
+          La carte est fournie par Google Maps. En l'affichant, vous acceptez
+          que Google reçoive des informations sur votre visite et dépose
+          des cookies.
+        </p>
+
+        <!-- data-src : un attribut "data-" sert à ranger une information
+             pour le JavaScript. Ici, l'adresse de la carte à charger.
+             Comme pour l'itinéraire, on montre le centre de Poitiers.
+             Le bouton n'apparaît que si JavaScript marche (classe "js"). -->
+        <button class="bouton bouton-principal bouton-carte" type="button"
+                data-src="https://www.google.com/maps?q=Poitiers&amp;output=embed">
+          Afficher la carte
+        </button>
+
+        <!-- Solution de secours, qui marche même sans JavaScript -->
+        <p>
+          Ou ouvrez
+          <a href="https://www.google.com/maps?q=Poitiers" target="_blank"
+             rel="noopener">le plan sur Google Maps<span class="visuellement-cache">
+             (s'ouvre dans un nouvel onglet)</span></a>.
+        </p>
+      </div>
     </section>
 
   </main>

@@ -405,7 +405,45 @@ button:focus-visible {
   font-weight: 700;
 }
 
-/* La carte Google Maps prend toute la largeur */
+/* Encadré affiché à la place de la carte tant que le visiteur
+   n'a pas cliqué sur "Afficher la carte" (RGPD) */
+.plan-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  min-height: 300px;      /* même hauteur que la carte : la page ne "saute" pas */
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background-color: #ffffff;
+  border: 2px dashed #ddd2bd;
+  border-radius: 8px;
+}
+
+.plan-zone p {
+  margin: 0;
+  max-width: 34rem;       /* lignes pas trop longues : plus facile à lire */
+}
+
+.plan-zone a {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* Le bouton ne sert à rien sans JavaScript : caché par défaut,
+   affiché seulement si js/main.js a ajouté la classe "js" */
+.bouton-carte {
+  display: none;
+}
+
+.js .bouton-carte {
+  display: block;
+  cursor: pointer;
+  font-family: inherit;   /* un bouton n'hérite pas de la police par défaut */
+}
+
+/* La carte Google Maps (créée par js/main.js) prend toute la largeur */
 .plan {
   display: block;
   width: 100%;
@@ -518,6 +556,10 @@ button:focus-visible {
 
   .plan {
     height: 400px;
+  }
+
+  .plan-zone {
+    min-height: 400px;
   }
 
   /* Page Menu : deux plats par ligne */
