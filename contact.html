@@ -8,6 +8,8 @@
   <title>Contact et horaires - Le Petit Baobab, restaurant africain à Poitiers</title>
   <!-- Feuille de style commune à toutes les pages -->
   <link rel="stylesheet" href="css/style.css">
+  <!-- Icône affichée dans l'onglet du navigateur -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -41,7 +43,7 @@
     <!-- Sur grand écran, ces deux blocs se placent côte à côte -->
     <div class="contact-infos">
 
-      <!-- ----- Coordonnées et boutons ----- -->
+      <!-- ~~~~~ Coordonnées et boutons ~~~~~ -->
       <section class="contact-bloc">
         <h2>Coordonnées</h2>
         <address>
@@ -62,16 +64,18 @@
                "destination=" (les espaces s'écrivent +). -->
           <a class="bouton bouton-secondaire"
              href="https://www.google.com/maps/dir/?api=1&amp;destination=Poitiers"
-             target="_blank" rel="noopener">Itinéraire</a>
+             target="_blank" rel="noopener">Itinéraire<span class="visuellement-cache">
+             (s'ouvre dans un nouvel onglet)</span></a>
         </div>
       </section>
 
-      <!-- ----- Horaires dans un tableau ----- -->
+      <!-- ~~~~~ Horaires dans un tableau ~~~~~ -->
       <section class="contact-bloc">
         <h2>Horaires</h2>
         <table class="horaires">
-          <!-- caption : le titre du tableau, lu par les lecteurs d'écran -->
-          <caption>Horaires d'ouverture du restaurant</caption>
+          <!-- caption : le titre du tableau, lu par les lecteurs d'écran.
+               Le titre "Horaires" le dit déjà à l'écran : on le cache visuellement. -->
+          <caption class="visuellement-cache">Horaires d'ouverture du restaurant</caption>
           <thead>
             <tr>
               <!-- scope="col" : cette case est le titre d'une colonne -->
@@ -122,7 +126,7 @@
 
     </div>
 
-    <!-- ----- Carte Google Maps intégrée ----- -->
+    <!-- ~~~~~ Carte Google Maps intégrée ~~~~~ -->
     <section class="contact-bloc">
       <h2>Plan d'accès</h2>
       <!-- iframe : affiche une autre page (ici Google Maps) dans notre page.
